@@ -15,6 +15,7 @@
             --glow: 0 0 15px rgba(75, 0, 130, 0.7);
         }
 
+        /* EFEITO DE RESPIRAÇÃO CROMÁTICA NO FUNDO */
         body {
             background-color: var(--devouring-black);
             color: var(--ghost-white);
@@ -23,18 +24,26 @@
             padding: 0;
             overflow-x: hidden;
             background-image: radial-gradient(circle at center, #1a001a 0%, #050505 100%);
+            background-attachment: fixed;
+            animation: pulseBackground 12s infinite alternate ease-in-out;
+        }
+
+        @keyframes pulseBackground {
+            from { filter: hue-rotate(0deg) brightness(1); }
+            to { filter: hue-rotate(10deg) brightness(1.3); }
         }
 
         header {
             text-align: center;
-            padding: 50px 20px;
+            padding: 60px 20px;
             border-bottom: 1px solid var(--arterial-red);
+            background: rgba(0,0,0,0.5);
         }
 
         h1 {
             font-family: 'Cinzel', serif;
-            font-size: 2.8rem;
-            letter-spacing: 4px;
+            font-size: clamp(2rem, 8vw, 3rem);
+            letter-spacing: 5px;
             margin: 0;
             text-transform: uppercase;
             text-shadow: var(--glow);
@@ -47,36 +56,47 @@
             margin-top: 10px;
         }
 
+        .tag-trans {
+            display: inline-block;
+            margin-top: 20px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            background: linear-gradient(90deg, #55CDFC, #F7A8B8, #FFFFFF, #F7A8B8, #55CDFC);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
         .container {
             max-width: 1200px;
-            margin: 30px auto;
+            margin: 40px auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
             padding: 20px;
         }
 
         .section-card {
-            background: rgba(10, 10, 10, 0.9);
+            background: rgba(10, 10, 10, 0.85);
+            backdrop-filter: blur(10px);
             border: 1px solid var(--iron-gray);
-            padding: 20px;
-            border-radius: 8px;
-            transition: all 0.4s ease;
+            padding: 25px;
+            border-radius: 12px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
         .section-card:hover {
             border-color: var(--poison-purple);
             box-shadow: var(--glow);
-            transform: scale(1.02);
+            transform: translateY(-8px);
         }
 
         .section-card h2 {
             font-family: 'Cinzel', serif;
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             color: var(--poison-purple);
             border-bottom: 1px solid var(--arterial-red);
-            padding-bottom: 8px;
-            margin-bottom: 15px;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
             text-align: center;
         }
 
@@ -86,39 +106,41 @@
         }
 
         .link-list li {
-            margin: 10px 0;
+            margin: 12px 0;
         }
 
         .link-list a {
             text-decoration: none;
             color: var(--ghost-white);
-            font-size: 0.9rem;
-            transition: color 0.3s;
+            font-size: 0.95rem;
+            transition: all 0.3s;
             display: block;
-            padding: 5px;
-            border-radius: 4px;
+            padding: 8px;
+            border-left: 2px solid transparent;
         }
 
         .link-list a:hover {
-            background: rgba(139, 0, 0, 0.1);
             color: var(--arterial-red);
-        }
-
-        .tag-trans {
-            display: block;
-            margin-top: 15px;
-            font-weight: bold;
-            background: linear-gradient(90deg, #55CDFC, #F7A8B8, #FFFFFF, #F7A8B8, #55CDFC);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            border-left: 2px solid var(--arterial-red);
+            padding-left: 15px;
+            background: rgba(139, 0, 0, 0.05);
         }
 
         footer {
             text-align: center;
-            padding: 40px;
-            font-size: 0.8rem;
-            color: #666;
+            padding: 60px 20px;
+            font-size: 0.85rem;
+            color: #555;
             border-top: 1px solid var(--iron-gray);
+            background: rgba(0,0,0,0.8);
+        }
+
+        /* Ajuste para Mobile */
+        @media (max-width: 600px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+            header { padding: 40px 15px; }
         }
     </style>
 </head>
@@ -126,78 +148,78 @@
 
     <header>
         <h1>ALEXIA MELUSINE</h1>
-        <div class="subtitle">Rosa de Fogo • Luz de Ferro • Visceral</div>
-        <span class="tag-trans">ORGULHO TRANS</span>
+        <div class="subtitle">Rosa de Fogo • Luz de Ferro • O Abismo Digital</div>
+        <div class="tag-trans">ORGULHO TRANS & PODER</div>
     </header>
 
     <div class="container">
         
         <div class="section-card">
-            <h2>Portal das Almas</h2>
+            <h2>Círculo das Almas</h2>
             <ul class="link-list">
                 <li><a href="https://bio.site/AlmasdePombagira" target="_blank">Páginas Oficiais (Bio.site)</a></li>
-                <li><a href="https://pombagiras.my.canva.site/" target="_blank">Canva Portal Pombagiras</a></li>
-                <li><a href="https://www.instagram.com/almasdepombagira/" target="_blank">Instagram: @almasdepombagira</a></li>
+                <li><a href="https://pombagiras.my.canva.site/" target="_blank">Canva: Portal Pombagiras</a></li>
+                <li><a href="https://www.instagram.com/almasdepombagira/" target="_blank">Instagram Devocional</a></li>
                 <li><a href="https://www.threads.com/@almasdepombagira" target="_blank">Threads: @almasdepombagira</a></li>
                 <li><a href="https://www.youtube.com/@almasdepombagira" target="_blank">YouTube: Almas de Pombagira</a></li>
-                <li><a href="https://bsky.app/profile/almasdepombagira.bsky.social" target="_blank">BlueSky: Almas de Pombagira</a></li>
-                <li><a href="https://br.pinterest.com/almasdepombagira/" target="_blank">Pinterest: Almas de Pombagira</a></li>
+                <li><a href="https://bsky.app/profile/almasdepombagira.bsky.social" target="_blank">BlueSky: @almasdepombagira</a></li>
+                <li><a href="https://br.pinterest.com/almasdepombagira/" target="_blank">Pinterest: Curadoria Visual</a></li>
             </ul>
         </div>
 
         <div class="section-card">
-            <h2>Espelhos e Movimento</h2>
+            <h2>Espelhos em Transe</h2>
             <ul class="link-list">
                 <li><a href="https://www.tiktok.com/@alexia.melusine" target="_blank">TikTok: @alexia.melusine</a></li>
                 <li><a href="https://www.tiktok.com/@espelhosdepombagira" target="_blank">TikTok: @espelhosdepombagira</a></li>
                 <li><a href="https://www.tiktok.com/@almasdepombagira" target="_blank">TikTok: @almasdepombagira</a></li>
                 <li><a href="https://www.tiktok.com/@alexiarosadefogo" target="_blank">TikTok: @alexiarosadefogo</a></li>
                 <li><a href="https://www.kwai.com/@AlmasdePombagira" target="_blank">Kwai: Almas de Pombagira</a></li>
-                <li><a href="https://www.kwai.com/@AlexiaRosadeFogo" target="_blank">Kwai: Alexia Rosa de Fogo</a></li>
-                <li><a href="https://www.kwai.com/@espelhosdepombagira" target="_blank">Kwai: Espelhos de Pombagira</a></li>
+                <li><a href="https://www.kwai.com/@AlexiaRosadeFogo" target="_blank">Kwai: Rosa de Fogo</a></li>
+                <li><a href="https://www.kwai.com/@espelhosdepombagira" target="_blank">Kwai: Espelhos</a></li>
             </ul>
         </div>
 
         <div class="section-card">
-            <h2>Silício e Visões</h2>
+            <h2>Luz de Ferro (Tech)</h2>
             <ul class="link-list">
                 <li><a href="https://github.com/pombagiras" target="_blank">GitHub: Pombagiras</a></li>
                 <li><a href="https://github.com/Orgulho-Trans" target="_blank">GitHub: Orgulho Trans</a></li>
                 <li><a href="https://github.com/alexialuzdeferro" target="_blank">GitHub: Alexia Luz de Ferro</a></li>
-                <li><a href="https://sora.chatgpt.com/profile/alexialuzdeferro" target="_blank">Sora AI Profile</a></li>
-                <li><a href="https://www.meta.ai/@alexiamelusine" target="_blank">Meta AI Profile</a></li>
-                <li><a href="https://www.reddit.com/user/Alexia-Luz-de-Ferro/" target="_blank">Reddit: Luz de Ferro</a></li>
+                <li><a href="https://sora.chatgpt.com/profile/alexialuzdeferro" target="_blank">Sora AI: Direção de Arte</a></li>
+                <li><a href="https://www.meta.ai/@alexiamelusine" target="_blank">Meta AI: Experimentos</a></li>
+                <li><a href="https://www.reddit.com/user/Alexia-Luz-de-Ferro/" target="_blank">Reddit: Fórum de Ferro</a></li>
             </ul>
         </div>
 
         <div class="section-card">
-            <h2>Palavras e Diálogo</h2>
+            <h2>O Verbo Visceral</h2>
             <ul class="link-list">
-                <li><a href="https://substack.com/@alexiamelusine" target="_blank">Substack: Alexia Melusine</a></li>
-                <li><a href="https://medium.com/@alexiamelusine" target="_blank">Medium: Alexia Melusine</a></li>
-                <li><a href="https://www.instagram.com/alexiamelusine/" target="_blank">Instagram: @alexiamelusine</a></li>
-                <li><a href="https://www.threads.com/@alexiamelusine" target="_blank">Threads: @alexiamelusine</a></li>
+                <li><a href="https://substack.com/@alexiamelusine" target="_blank">Substack: Ensaios do Abismo</a></li>
+                <li><a href="https://medium.com/@alexiamelusine" target="_blank">Medium: Crônicas</a></li>
+                <li><a href="https://www.instagram.com/alexiamelusine/" target="_blank">Instagram Pessoal</a></li>
+                <li><a href="https://www.threads.com/@alexiamelusine" target="_blank">Threads Pessoal</a></li>
                 <li><a href="https://x.com/PambuNjila" target="_blank">X (Twitter): @PambuNjila</a></li>
                 <li><a href="https://mastodon.social/@alexiamelusine" target="_blank">Mastodon Social</a></li>
             </ul>
         </div>
 
         <div class="section-card">
-            <h2>Círculos Internos</h2>
+            <h2>Círculos de Acesso</h2>
             <ul class="link-list">
                 <li><a href="https://whatsapp.com/channel/0029VbBs2AnJkK7J9J0nLr2G" target="_blank">WhatsApp: Canal Visceral</a></li>
-                <li><a href="https://t.me/pomba_giras" target="_blank">Telegram: Almas de Pombagira</a></li>
+                <li><a href="https://t.me/pomba_giras" target="_blank">Telegram: Santuário</a></li>
                 <li><a href="https://discord.gg/gWZP8R7Dqu" target="_blank">Discord: Comunidade</a></li>
-                <li><a href="https://www.facebook.com/alexia.tsan.7" target="_blank">Facebook: Alexia Tsan</a></li>
-                <li><a href="https://linktr.ee/alexiarosadefogo" target="_blank">Linktree: Rosa de Fogo</a></li>
+                <li><a href="https://linktr.ee/alexiarosadefogo" target="_blank">Linktree Secundário</a></li>
+                <li><a href="https://www.facebook.com/alexia.tsan.7" target="_blank">Facebook Oficial</a></li>
             </ul>
         </div>
 
     </div>
 
     <footer>
-        <p>CONSTRUÍDO POR ALEXIA MELUSINE © 2026</p>
-        <p>A união entre o mistério ancestral e a vanguarda tecnológica.</p>
+        <p>© 2026 ALEXIA MELUSINE | TODOS OS DIREITOS RESERVADOS</p>
+        <p>Desenvolvido no cruzamento entre a magia e o algoritmo.</p>
     </footer>
 
 </body>
